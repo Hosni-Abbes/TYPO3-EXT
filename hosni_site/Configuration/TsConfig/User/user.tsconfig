@@ -1,0 +1,5 @@
+# Add label and color to some page in tree section
+options.pageTree.label {
+    3.label = Content Page
+    3.color = #ff00ff
+}

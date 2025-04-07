@@ -1,0 +1,6 @@
+# If the order is to use typoscript (can be removed)
+plugin.tx_mask2blocks {
+    settings {
+        
+    }
+}

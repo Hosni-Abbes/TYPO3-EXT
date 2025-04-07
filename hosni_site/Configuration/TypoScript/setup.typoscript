@@ -1,0 +1,76 @@
+@import 'EXT:hosni_site/Configuration/TypoScript/Extensions'
+
+page = PAGE
+page {
+    typeNum = 0
+ 
+    # Meta and SEO settings
+    meta {
+        viewport = width=device-width, initial-scale=1.0
+        description.field = description
+        keywords.field = keywords
+    }
+ 
+    # Include CSS and JS
+    includeCSS {
+        #main = EXT:hosni_site/Resources/Public/Css/main.css
+    }
+    includeJSFooter {
+        main = EXT:hosni_site/Resources/Public/JavaScript/main.js
+    }
+ 
+    # Title tag setup
+    headerData.10 = TEXT
+    headerData.10 {
+        field = title
+        wrap = <title>| - Typo3-13</title>
+    }
+ 
+    # Fluid Template
+    10 = FLUIDTEMPLATE
+    10 {
+        format = html
+        file = EXT:hosni_site/Resources/Private/Templates/Page/Default.html
+        partialRootPath = EXT:hosni_site/Resources/Private/Partials/
+        layoutRootPath = EXT:hosni_site/Resources/Private/Layouts/
+    }
+}
+lib.user = TEXT
+lib.user {
+    wrap = <a href="/">|</a>
+    data = TSFE:fe_user|user|username
+}
+
+# Main content
+lib.mainContent < styles.content.get
+lib.mainContent.select.where = colPos = 0
+lib.topContent < styles.content.get
+lib.topContent.select.where = colPos = 1
+lib.leftContent < styles.content.get
+lib.leftContent.select.where = colPos = 2
+ 
+# Main Menu
+lib.mainMenu = HMENU
+lib.mainMenu {
+    special = directory
+    special.value = 1
+ 
+    1 = TMENU
+    1 {
+        wrap = <ul>|</ul>
+        NO = 1
+        NO {
+            wrapItemAndSub = <li>|</li>
+            ATagTitle.field = title
+        }
+    }
+}
+ 
+# Footer
+lib.footer = COA
+lib.footer {
+    10 = TEXT
+    10.value = © 2024 Typo3-13 - All rights reserved
+}
+
+config.admPanel = 1

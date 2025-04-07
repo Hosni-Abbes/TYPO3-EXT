@@ -1,0 +1,29 @@
+<html
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+        data-namespace-typo3-fluid="true">
+
+
+    <f:layout name="Module" />
+    <f:section name="Content">
+        <f:if condition="{maskItems}">
+            <div class="recordlist h-auto">
+                <p class="p-3 pb-0 m-0">Put the Mask json file Path (mask.js)</p>
+                <f:form id="mask2blocks-migration-form-migrate"
+                    class="p-3"
+                    name="migrate"
+                    action="migrate"
+                    controller="Migration"
+                    extentionName="Mask2blocks"
+                    method="post">
+                    <f:form.textfield
+                        property="jsonpath"
+                        class="form-control form-control-sm d-inline w-75 py-2"
+                        value=""
+                    />
+                    <button class="btn btn-default d-inline py-2" type="submit">Migrate</button>
+                </f:form>
+            </div>
+        </f:if>
+    </f:section>
+</html>

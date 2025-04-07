@@ -1,0 +1,70 @@
+plugin.tx_news {
+  view {
+    templateRootPaths.10 = EXT:hosni_site/Resources/Private/Templates/Extensions/News/
+    partialRootPaths.10 = EXT:hosni_site/Resources/Private/Partials/Extensions/News/
+    layoutRootPaths.10 = EXT:hosni_site/Resources/Private/Layouts/Extensions/News/
+  }
+
+  settings {
+		displayDummyIfNoMedia = 1
+
+		detail {
+			errorHandling = showStandaloneTemplate,EXT:news/Resources/Private/Templates/News/DetailNotFound.html,404
+			checkPidOfNewsRecord = 0
+			registerProperties = keywords,title
+			showPrevNext = 1
+			showSocialShareButtons = 1
+			showMetaTags = 1
+
+			# media configuration
+			media {
+				image {
+					lazyLoading = {$styles.content.image.lazyLoading}
+					maxWidth = 282
+					maxHeight =
+
+					# Get lightbox settings from fluid_styled_content
+					lightbox {
+						enabled = {$styles.content.textmedia.linkWrap.lightboxEnabled}
+						class = {$styles.content.textmedia.linkWrap.lightboxCssClass}
+						width = {$styles.content.textmedia.linkWrap.width}
+						height = {$styles.content.textmedia.linkWrap.height}
+						rel = lightbox[myImageSet]
+					}
+				}
+
+				video {
+					width = 282
+					height = 159
+				}
+			}
+
+			pageTitle = 1
+			pageTitle {
+				provider = GeorgRinger\News\Seo\NewsTitleProvider
+				properties = alternativeTitle,title
+			}
+		}
+    		list {
+			# media configuration
+			media {
+				image {
+					lazyLoading = {$styles.content.image.lazyLoading}
+					maxWidth = 100
+					maxHeight = 100
+				}
+
+				dummyImage = EXT:hosni_site/Resources/Public/Images/dummy-preview-image.png
+			}
+
+			# Paginate configuration.
+			paginate {
+        class = GeorgRinger\NumberedPagination\NumberedPagination
+				itemsPerPage = 1
+				insertAbove = 0
+				insertBelow = 1
+				maximumNumberOfLinks = 3
+			}
+		}
+  }
+}

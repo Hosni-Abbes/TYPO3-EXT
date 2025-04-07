@@ -1,0 +1,26 @@
+<f:layout name="Module"/>
+
+<f:section name="Content">
+    <f:if condition="{countProducts}">
+        <p>{countProducts} products have been imported</p>
+    </f:if>
+    <f:if condition="{products}">
+        <f:then>
+            <div class="product-list">
+                <f:for each="{products}" as="product" iteration="i">
+                    <div class="product-item">
+                        <span>{product.uid}</span>
+                        
+                        <span>{product.title}</span>
+    
+                        <f:link.action 
+                            action="delete"
+                            extensionName="HosniSite"
+                            arguments="{product:product}"
+                            >Delete</f:link.action>
+                    </div>
+                </f:for>
+            </div>
+        </f:then>
+    </f:if>
+</f:section>

@@ -1,0 +1,29 @@
+{
+    "name": "t3dev/mask2blocks",
+    "type": "typo3-cms-extension",
+    "description": "Migrate mask elements to content blocks",
+    "homepage": "",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "prefer-stable": true,
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Hosni Abbes",
+            "email": "hosny.abbes@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "T3dev\\Mask2blocks\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "mask2blocks"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<header class="site-header">
+    <nav>
+        <f:cObject typoscriptObjectPath="lib.mainMenu" />
+        <f:security.ifAuthenticated>
+            <f:then>
+                <f:cObject typoscriptObjectPath="lib.user" />
+            </f:then>
+        </f:security.ifAuthenticated>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="site-top">
+        <f:render partial="topPage"  />
+    </div>
+    
+    <div class="site-wrapper">
+        <div class="site-right">
+            <f:cObject typoscriptObjectPath="lib.leftContent" />
+        </div>
+        <div class="site-main">
+            <f:cObject typoscriptObjectPath="lib.mainContent" />
+        </div>
+    </div>
+</main>
+
+
+

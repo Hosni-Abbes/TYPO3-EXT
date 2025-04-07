@@ -1,0 +1,30 @@
+{
+  "name": "hosni/hosni-site",
+  "type": "typo3-cms-extension",
+  "description": "Main site extension.",
+  "license": ["GPL-2.0-or-later"],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {},
+  "require-dev": {},
+  "version": "1.0.0",
+  "authors": [
+    {
+        "name": "Hosni Abbes",
+        "email": "hosny.abbes@gmail.com"
+    }
+],
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "hosni_site"
+    }
+  },
+  "replace": {
+    "hosni/hosni-site": "self.version"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hosni\\HosniSite\\": "Classes/"
+    }
+  }
+}

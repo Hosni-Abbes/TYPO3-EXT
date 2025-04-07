@@ -1,0 +1,42 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+    <f:be.pageRenderer
+        includeCssFiles="{0: 'EXT:mask2blocks/Resources/Public/Css/migration.css'}"
+        includeJavaScriptModules="{0: '@t3dev/mask2blocks/migration.js'}"
+    />
+
+    <div class="module" data-module-name="mask2blocks">
+        <div class="module-docheader t3js-module-docheader">
+            <!-- @todo: add links if needed -->
+        </div>
+
+        <div class="module-body t3js-module-body">
+            <h1>{f:translate(key:'page_title')}</h1>
+
+            <!-- Display info section for infos and warnings -->
+            <f:format.raw>
+                <f:be.infobox
+                        message="{f:translate(key:'info.message')}"
+                        state="-2"
+                />
+            </f:format.raw>
+
+            <f:format.raw>
+                <f:be.infobox
+                        message="{f:translate(key:'warning.message')}"
+                        state="1"
+                />
+            </f:format.raw>
+
+            <f:render partial="Misc/FlashMessages" />
+
+            <f:comment>
+                <!-- -->
+                <span class="d-none py-3 fs-3 text-danger err-messages"></span>
+            </f:comment>
+
+            <f:render section="Content" />
+        </div>
+    </div>
+</html>

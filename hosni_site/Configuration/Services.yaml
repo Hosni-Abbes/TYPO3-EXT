@@ -1,0 +1,29 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Hosni\HosniSite\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  Hosni\HosniSite\Middleware\RedirectMiddleware:
+    public: true
+
+
+  # Cron Jobs Commands
+  Hosni\HosniSite\Command\ClearSysLogCommand:
+    tags:
+      - name: console.command
+        command: 'hosnisite:clear-sys_log'
+        description: 'Keep only logs from last week.'
+    
+  # Event listeners custom
+  Hosni\HosniSite\EventListener\CreateConstraintsFromDemandEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'hosni_site.create_constraints_from_demand'
+
+
+  

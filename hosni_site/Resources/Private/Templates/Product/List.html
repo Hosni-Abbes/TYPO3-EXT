@@ -1,0 +1,40 @@
+<html data-namespace-typo3-fluid="true"
+    xmlns="http://www.w3.org/1999/xhtml" lang="fr"
+    xmlns:f="http://typo3.org/ns/fluid/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+>
+    <f:if condition="{products}">
+        <f:then>
+            <f:for each="{products}" as="product" iteration="i">
+                <div>
+                    <h3>{product.title}</h3>
+                    <p>{product.desc -> f:format.raw()}</p>
+                    <f:link.action 
+                        action="form"
+                        extensionName="HosniSite"
+                        pluginName="Pi1"
+                        arguments="{product:product, isEdit:1}"
+                        >Edit</f:link.action>
+                    <f:link.action 
+                        action="delete"
+                        extensionName="HosniSite"
+                        pluginName="Pi1"
+                        arguments="{product:product}"
+                        >Delete</f:link.action>
+                </div>
+            </f:for>
+        </f:then>
+        <f:else>
+            No product found.
+        </f:else>
+    </f:if>
+    <br />
+    <br />
+    <f:link.action 
+        action="form"
+        extensionName="HosniSite"
+        pluginName="Pi1"
+        >Create</f:link.action>
+            
+</html>

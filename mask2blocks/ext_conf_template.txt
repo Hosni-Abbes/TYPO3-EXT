@@ -1,0 +1,8 @@
+# cat=backend; type=string; label=LLL:EXT:mask2blocks/Resources/Private/Language/locallang.xlf:ext_config.maskJsonPath
+maskJsonPath = EXT:my_extension/Configuration/Mask/mask.json
+# cat=backend; type=string; label=LLL:EXT:mask2blocks/Resources/Private/Language/locallang.xlf:ext_config.contentBlocksSavePath
+contentBlocksSavePath = EXT:my_extension/Resources/Private/ContentBlocks/
+# cat=backend; type=string; label=LLL:EXT:mask2blocks/Resources/Private/Language/locallang.xlf:ext_config.contentBlocksYamlPath
+contentBlocksYamlPath = EXT:my_extension/Configuration/ContentBlocks/
+# cat=backend; type=boolean; label=LLL:EXT:mask2blocks/Resources/Private/Language/locallang.xlf:ext_config.enableHiddenMaskElements
+enableHiddenElements = 0

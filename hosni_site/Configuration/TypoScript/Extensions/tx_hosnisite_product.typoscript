@@ -1,0 +1,8 @@
+plugin.tx_hosnisite_product {
+    persistence {
+        storagePid = 25
+    }
+    settings {
+        pid = 25
+    }
+}

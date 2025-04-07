@@ -1,0 +1,35 @@
+<f:layout name="Module"/>
+
+<f:section name="Content">
+    <div class="import-interface">
+        <f:form name="import" class="import-form" data-action="{f:uri.action(action: 'import', extensionName:'Products')}" enctype="multipart/form-data" method="post">
+            <f:form.upload property="file" />
+            <button class="import-products" type="submit">Import</button>
+        </f:form>
+        <p class="import-message"></p>
+        <f:if condition="{products}">
+            <f:then>
+                <div class="product-list">
+                    <f:for each="{products}" as="product" iteration="i">
+                        <div class="product-item">
+                            <span>{product.uid}</span>
+                            
+                            <span>{product.title}</span>
+        
+                            <f:link.action 
+                                action="delete"
+                                extensionName="HosniSite"
+                                arguments="{product:product}"
+                                >Delete</f:link.action>
+                        </div>
+                    </f:for>
+                </div>
+            </f:then>
+            <f:else>
+                <div class="product-list">
+                    No product found.
+                </div>
+            </f:else>
+        </f:if>
+    </div>
+</f:section>

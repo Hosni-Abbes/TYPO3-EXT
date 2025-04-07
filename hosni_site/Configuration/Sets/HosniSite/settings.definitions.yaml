@@ -1,0 +1,20 @@
+settings:
+  hosni_site.view.templateRootPath:
+    default: 'EXT:hosni_site/Resources/Private/Templates/'
+    type: string
+  hosni_site.view.partialRootPath:
+    default: 'EXT:hosni_site/Resources/Private/Partials/'
+    type: string
+  hosni_site.view.layoutRootPath:
+    default: 'EXT:hosni_site/Resources/Private/Layouts/'
+    type: string
+  hosni_site.pages.excludedDoktypes:
+    default: '3, 4, 6, 7, 199, 254'
+    type: string
+  hosni_site.pages.excludePagesRecursive:
+    default: ''
+    type: string
+  hosni_site.pages.additionalWhere:
+    default: "{#no_index} = 0 AND {#canonical_link} = ''"
+    type: string
+

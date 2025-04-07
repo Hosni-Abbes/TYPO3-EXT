@@ -1,0 +1,111 @@
+<html
+        data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:layout name="Module"/>
+
+<f:section name="Content">
+    <f:variable name="count" value="{fields -> f:count()}"/>
+
+    <f:if condition="{fields} && {count}">
+        <f:then>
+            <f:render arguments="{_all}" section="table"/>
+
+            <!-- @todo: add a hidden input for the initial JSON for prepare action-->
+            <input type="hidden" value="{lorem: lorem}" name="mask2blocks_prepare_json" />
+
+            <!-- trigger overview action -->
+            <a class="btn btn-primary mt-3" href="">Submit</a>
+        </f:then>
+        <f:else>
+            <f:format.raw>
+                <f:be.infobox
+                        message="{f:translate(key:'error.message', arguments: {0: '{f:be.uri(route: \'mask_module\')}'})}"
+                        state="2"
+                />
+            </f:format.raw>
+        </f:else>
+    </f:if>
+</f:section>
+
+<f:section name="table">
+    <div class="table-fit mb-0">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th class="col-checkbox">
+                    <div class="btn-group dropdown">
+                        <button aria-expanded="false"
+                                aria-label="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.openSelectionOptions')}"
+                                class="dropdown-toggle dropdown-toggle-link t3js-multi-record-selection-check-actions-toggle" data-bs-boundary="window" data-bs-toggle="dropdown" type="button">
+                            <core:icon identifier="actions-selection" size="small"/>
+                        </button>
+                        <ul class="dropdown-menu t3js-multi-record-selection-check-actions">
+                            <li>
+                                <button class="dropdown-item disabled" data-multi-record-selection-check-action="check-all"
+                                        title="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.checkAll')}" type="button">
+                                    <span class="dropdown-item-columns">
+                                        <span aria-hidden="true" class="dropdown-item-column dropdown-item-column-icon">
+                                            <core:icon identifier="actions-selection-elements-all" size="small"/>
+                                        </span>
+                                        <span class="dropdown-item-column dropdown-item-column-title">
+                                            <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.checkAll"/>
+                                        </span>
+                                    </span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="dropdown-item disabled" data-multi-record-selection-check-action="check-none"
+                                        title="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.uncheckAll')}" type="button">
+                                    <span class="dropdown-item-columns">
+                                        <span aria-hidden="true"
+                                              class="dropdown-item-column dropdown-item-column-icon">
+                                            <core:icon identifier="actions-selection-elements-none" size="small"/>
+                                        </span>
+                                        <span class="dropdown-item-column dropdown-item-column-title">
+                                            <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.uncheckAll"/>
+                                        </span>
+                                    </span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="dropdown-item" data-multi-record-selection-check-action="toggle"
+                                        title="{f:translate(key: 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.toggleSelection')}" type="button">
+                                    <span class="dropdown-item-columns">
+                                        <span aria-hidden="true" class="dropdown-item-column dropdown-item-column-icon">
+                                            <core:icon identifier="actions-selection-elements-invert" size="small"/>
+                                        </span>
+                                        <span class="dropdown-item-column dropdown-item-column-title">
+                                            <f:translate key="LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.toggleSelection"/>
+                                        </span>
+                                    </span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </th>
+                <th>Mask UID</th>
+                <th>Mask PID</th>
+                <th>Identifier</th>
+                <th>Mask Count</th>
+            </tr>
+            </thead>
+            <tbody data-multi-record-selection-row-selection="true">
+                <f:for as="field" each="{fields}" key="fieldId">
+                    <tr data-multi-record-selection-element="true" data-uid="{field.uid}">
+                        <td class="col-checkbox">
+                            <span class="form-check form-check-type-toggle">
+                                <input class="form-check-input t3js-multi-record-selection-check" type="checkbox">
+                            </span>
+                        </td>
+                        <td>{field.uid}</td>
+                        <td>{field.pid}</td>
+                        <td>{field.CType}</td>
+                        <td>{count}</td>
+                    </tr>
+                </f:for>
+            </tbody>
+        </table>
+    </div>
+</f:section>
+</html>

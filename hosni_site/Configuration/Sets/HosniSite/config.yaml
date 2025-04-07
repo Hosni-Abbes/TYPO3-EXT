@@ -1,0 +1,9 @@
+name: hosni/hosni-site
+label: Hosni Site
+
+  # Load TypoScript, TSconfig and settings from dependencies
+dependencies:
+  - typo3/fluid-styled-content
+  - typo3/fluid-styled-content-css
+  - georgringer/news
+  - typo3/felogin

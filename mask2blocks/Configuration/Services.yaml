@@ -1,0 +1,28 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+    bind:
+      $mask2blocksExtensionConfiguration: '@extensionconfiguration.mask2blocks'
+
+  extensionconfiguration.mask2blocks:
+    class: 'array'
+    factory:
+      - '@TYPO3\CMS\Core\Configuration\ExtensionConfiguration'
+      - 'get'
+    arguments:
+      - 'mask2blocks'
+
+  T3dev\Mask2blocks\:
+    resource: '../Classes/*'
+
+  T3dev\Mask2blocks\Service\:
+    resource: ../Classes/Service/*
+    public: true
+
+  T3dev\Mask2blocks\Command\MaskToBlocksMigrateCommand:
+    tags:
+      - name: 'console.command'
+        command: 'mask2blocks:migrate'
+        description: 'Migrate mask elements to content blocks'

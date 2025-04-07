@@ -1,0 +1,26 @@
+plugin.tx_felogin_login {
+    settings {
+    # Email Settings
+        email_from = ne-pas-repondre@test.com
+        email_fromName = Test Typo3-13
+        email {
+            templateName = {$styles.content.loginform.email.templateName ?? $felogin.email.templateName}
+            layoutRootPaths {
+                20 = {$styles.content.loginform.email.layoutRootPath ?? $felogin.email.layoutRootPath}
+            }
+            templateRootPaths {
+                20 = {$styles.content.loginform.email.templateRootPath ?? $felogin.email.templateRootPath}
+            }
+            partialRootPaths {
+                20 = {$styles.content.loginform.email.partialRootPath ?? $felogin.email.partialRootPath}
+            }
+        }
+    }
+    view {
+        templateRootPaths {
+            10 >
+            20 = EXT:hosni_site/Resources/Private/Templates/Extensions/Felogin/
+        }
+   
+  }
+}

@@ -1,0 +1,31 @@
+<f:layout name="Module"/>
+
+<f:section name="Content">
+    <div class="import-interface">
+        <f:form name="import" action="import" extensionName="Products" enctype="multipart/form-data" method="post">
+            <f:form.upload property="file" />
+            <button class="import-products" type="submit">Import</button>
+        </f:form>
+        <f:if condition="{products}">
+            <f:then>
+                <f:for each="{products}" as="product" iteration="i">
+                    <div>
+                        <span>{product.uid}</span>
+                        
+                        <span>{product.title}</span>
+    
+                        <f:link.action 
+                            action="delete"
+                            extensionName="HosniSite"
+                            pluginName="Pi1"
+                            arguments="{product:product}"
+                            >Delete</f:link.action>
+                    </div>
+                </f:for>
+            </f:then>
+            <f:else>
+                No product found.
+            </f:else>
+        </f:if>
+    </div>
+</f:section>

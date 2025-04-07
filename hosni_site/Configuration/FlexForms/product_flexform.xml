@@ -1,0 +1,44 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Choose Products</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.products>
+                        <label>Products (max items 3)</label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectMultipleSideBySide</renderType>
+                            <size>5</size>
+                            <maxitems>3</maxitems>
+                            <minitems>1</minitems>
+                            <foreign_table>tx_hosnisite_domain_model_product</foreign_table>
+                        </config>
+                    </settings.products>
+
+                    <settings.orderBy>
+                        <label>Order By</label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items>
+                                <numIndex index="0">
+                                    <numIndex index="0">Create Date</numIndex>
+                                    <numIndex index="1">crdate</numIndex>
+                                </numIndex>
+                                <numIndex index="1">
+                                    <numIndex index="0">Title</numIndex>
+                                    <numIndex index="1">title</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
+                    </settings.orderBy>
+
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>
