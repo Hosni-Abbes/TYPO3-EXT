@@ -6,6 +6,9 @@ In the Backend module you can see the list of Mask elements, check which element
 
 ### HosniSite
 HosniSite is a TYPO3 version 13 extension made for fun. Nothing is special about this extension than it has some V13 features.
+
 Also this extension have CRUD functionality for products, with possibility to create/update/delete Products from FE.
+
 Backend module where you can access to products and import.
+
 RedirectMiddleware for specific API pages, only logged in users can access to API page and consume the json data.
